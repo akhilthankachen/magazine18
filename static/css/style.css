@@ -4,12 +4,12 @@ body{
     margin: 0;
 }
 .container{
-    background-color: white;
+    background-color: #D4DCA9;
     height: 100vh;
     width: 100vw;
 }
 .pages{
-    height: 75%;
+    height: 70%;
     width: 100%;
     overflow: hidden;
     margin: auto;
@@ -23,6 +23,82 @@ body{
     margin: auto;
     left: 0;right: 0;top: 0;bottom: 0;  
 }
-.border{
-    border-radius: 10px;
+#arrowButtons{
+    position:absolute;
+    bottom:1%;
+    left:0;right:0;
+    margin:auto;
+    width:100%;
+    height:10%;
+}
+#count{
+    position:absolute;
+    top:-2.5vw;
+    left:0;right:0;
+    margin:auto;
+    width:5vw;
+    height:5vw;
+    background-color: white;
+    border-radius:2.5vw;
+    text-align: center;
+    color:rgb(143, 151, 95);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 200;
+}
+
+
+
+
+
+button {
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    outline:0;
+}
+
+svg {
+    padding: 5px;
+}
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -45px;
+    margin-left: -35px;
+    width: 70px;
+    height: 90px;
+}
+
+.left {
+    left: 47%;
+}
+
+.right {
+    left: 53%;
+}
+
+.left:hover polyline,
+.left:focus polyline {
+    stroke-width: 8;
+}
+
+.left:active polyline {
+    stroke-width: 10;
+    transition: all 100ms ease-in-out;
+}
+
+.right:hover polyline,
+.right:focus polyline {
+    stroke-width: 8;
+}
+
+.right:active polyline {
+    stroke-width: 8;
+    transition: all 100ms ease-in-out;
+}
+
+polyline {
+    transition: all 250ms ease-in-out;
 }
