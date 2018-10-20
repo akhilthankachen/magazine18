@@ -103,7 +103,7 @@ function animateFiveToFour(id,order){
             left:"",
             opacity:"0.7",
             width: widthPageTwo
-        });
+        },animationSpeed);
         id.css({"z-index":"66"});
     }else{
         id.animate({
@@ -112,7 +112,7 @@ function animateFiveToFour(id,order){
             left:"",
             opacity:"0.4",
             width: widthPageThree
-        });
+        },animationSpeed);
         id.css({"z-index":"33"});
     }
 }
@@ -125,8 +125,8 @@ function animateFourToThree(id,order){
             left: "0",
             opacity:"1",
             width: widthPageOne
-        });
-        id.css({"z-index":"66"});
+        },animationSpeed);
+        id.css({"z-index":"99"});
     }else{
         id.animate({
             height: "65%",
@@ -134,9 +134,57 @@ function animateFourToThree(id,order){
             left:"",
             opacity:"0.7",
             width:widthPageTwo
-        });
+        },animationSpeed);
+        id.css({"z-index":"66"});
+    }
+}
+
+function animateThreeToTwo(id,order){
+    if(order == 0){
+        id.animate({
+            height: "100%",
+            right: "0",
+            left: "0",
+            opacity:"1",
+            width: widthPageOne
+        },animationSpeed);
+        id.css({"z-index":"66"});
+    }else{
+        id.animate({
+            height: "65%",
+            left: "18%",
+            right:"",
+            opacity:"0.7",
+            width:widthPageTwo
+        },animationSpeed);
+        id.css({"z-index":"66"});
+    }
+}
+
+function animateTwoToOne(id,order){
+    if(order == 0){
+        id.animate({
+            height: "65%",
+            left: "18%",
+            right:"",
+            opacity:"0.7",
+            width: widthPageTwo
+        },animationSpeed);
+        id.css({"z-index":"66"});
+    }else{
+        id.animate({
+            height: "35%",
+            left: "8%",
+            right:"",
+            opacity:"0.4",
+            width: widthPageThree
+        },animationSpeed);
         id.css({"z-index":"33"});
     }
+}
+
+function animateTwoToOne(id,order){
+
 }
 
 function rightArrowClick(){
