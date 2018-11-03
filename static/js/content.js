@@ -8,11 +8,28 @@ var two = $("#two");
 var three = $("#three");
 var four = $("#four");
 var five = $("#five");
+var imgIdOne = $("#imgOne");
+var imgIdTwo = $("#imgTwo");
+var imgIdThree = $("#imgThree");
+var imgIdFour = $("#imgFour");
+var imgIdFive = $("#imgFive");
 var pages = $(".pages");
 
 var widthPageThree = 0;
 var widthPageTwo = 0;
 var widthPageOne = 0;
+
+var rightOnePos;
+var rightTwoPos;
+var rightThreePos;
+var rightFourPos;
+var rightFivePos;
+var leftOnePos;
+var leftTwoPos;
+var leftThreePos;
+var leftFourPos;
+var leftFivePos;
+
 //function init css of one
 function initOne(){
     var pageHeight = $(".pages").height();
@@ -82,6 +99,26 @@ function initThree(){
 function init(){
     $("#four").css({"display":"none"});
     $("#five").css({"display":"none"});
+
+    var pageHeight = $(".pages").height();
+    var pageWidth = ((pageHeight * 1.043) * 2480) / 3508;
+    widthPageOne = pageWidth;
+    var pageTwoWidth = ((pageHeight * .69) * 2480) / 3508;
+    widthPageTwo = pageTwoWidth;
+    var pageThreeWidth = ((pageHeight * .35) * 2480) / 3508;
+    widthPageThree = pageThreeWidth;
+
+    rightOnePos = ((92/100)*pages.width()) - widthPageThree;
+    rightTwoPos = ((82/100)*pages.width()) - widthPageTwo;
+    rightThreePos = 0;
+    rightFourPos = (18/100)*pages.width();
+    rightFivePos = (8/100)*pages.width();
+
+    leftOnePos = (8/100)*pages.width();
+    leftTwoPos = (18/100)*pages.width();
+    leftThreePos = 0;
+    leftFourPos = ((82/100)*pages.width()) - widthPageTwo; 
+    leftFivePos = ((92/100)*pages.width()) - widthPageThree;
 }
 //function executes when dom is ready
 $( document ).ready(function() {
@@ -99,8 +136,8 @@ function animateFiveToFour(id,order){
     if(order == 1){
         id.animate({
             height: "65%",
-            right: "18%",
-            left:"",
+            left: leftFourPos,
+            right: rightFourPos,
             opacity:"0.7",
             width: widthPageTwo
         },animationSpeed);
@@ -108,8 +145,8 @@ function animateFiveToFour(id,order){
     }else{
         id.animate({
             height: "35%",
-            right: "8%",
-            left:"",
+            right: rightFivePos,
+            left: leftFivePos,
             opacity:"0.4",
             width: widthPageThree
         },animationSpeed);
@@ -121,8 +158,8 @@ function animateFourToThree(id,order){
     if(order == 1){
         id.animate({
             height: "100%",
-            right: "0",
-            left: "0",
+            right: rightThreePos,
+            left: leftThreePos,
             opacity:"1",
             width: widthPageOne
         },animationSpeed);
@@ -130,8 +167,8 @@ function animateFourToThree(id,order){
     }else{
         id.animate({
             height: "65%",
-            right: "18%",
-            left:"",
+            right: rightFourPos,
+            left: leftFourPos,
             opacity:"0.7",
             width:widthPageTwo
         },animationSpeed);
@@ -143,8 +180,8 @@ function animateThreeToTwo(id,order){
     if(order == 0){
         id.animate({
             height: "100%",
-            right: "0",
-            left: "0",
+            right: rightThreePos,
+            left: leftThreePos,
             opacity:"1",
             width: widthPageOne
         },animationSpeed);
@@ -152,8 +189,8 @@ function animateThreeToTwo(id,order){
     }else{
         id.animate({
             height: "65%",
-            left: "18%",
-            right:"",
+            left: leftTwoPos,
+            right: rightTwoPos,
             opacity:"0.7",
             width:widthPageTwo
         },animationSpeed);
@@ -165,8 +202,8 @@ function animateTwoToOne(id,order){
     if(order == 0){
         id.animate({
             height: "65%",
-            left: "18%",
-            right:"",
+            left: leftTwoPos,
+            right: rightTwoPos,
             opacity:"0.7",
             width: widthPageTwo
         },animationSpeed);
@@ -174,8 +211,8 @@ function animateTwoToOne(id,order){
     }else{
         id.animate({
             height: "35%",
-            left: "8%",
-            right:"",
+            left: leftOnePos,
+            right: rightOnePos,
             opacity:"0.4",
             width: widthPageThree
         },animationSpeed);
@@ -183,12 +220,35 @@ function animateTwoToOne(id,order){
     }
 }
 
-function animateTwoToOne(id,order){
-
+function animateOneToFive(id,order,imgId,newImg){
+    if(order == 1){
+        id.animate({
+            opacity:"0"
+        },animationSpeed/2);
+        id.animate({
+            opacity:"0.4",
+            right: rightFivePos,
+            left: leftFivePos
+        },animationSpeed/2);
+        id.css({"z-index":"33"});
+    }else{
+        id.animate({
+            opacity:"0"
+        },animationSpeed/2);
+        id.animate({
+            opacity:"0.4",
+            left: leftOnePos,
+            right: rightOnePos
+        },animationSpeed/2);
+        id.css({"z-index":"33"});
+    }
 }
 
-function rightArrowClick(){
 
+function rightArrowClick(){
+    animateThreeToTwo(one,1);
+    animateFourToThree(two,1);
+    animateFiveToFour(three,1);
 }
 function leftArrowClick(){
 
