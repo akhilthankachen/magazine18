@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="./static/css/style.css">
 <link rel="stylesheet" type="text/css" href="./static/css/styleMob.css">
 <title>College Magazine 2018</title>
-
-<script></script>
-
+<style>
+    #loading{
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        display: block;
+        position: absolute;
+        bottom: 0%;
+        z-index: 9999;
+        border-radius: 0;
+        overflow: hidden;
+    }
+    #loadingGif{
+        position: absolute;
+        margin: auto;
+        display: block;
+        top: 0;right: 0;bottom: 0;left: 0;
+        height: 10%;
+        width: auto;
+    }
+</style>
+<script>
+    var speed;
+    if( window.innerHeight <= 768 ){
+        speed = 400;
+    }else{
+        speed = 500;
+    }
+    window.onload = function (){
+        setTimeout(()=>{
+            $("#loading").animate({
+                "bottom":"100%",
+                "border-radius":"60%",
+            },speed);
+        },1000);
+    };
+</script>
 </head>
-
 <body>
+    <div id="loading">
+        <img src="./static/img/loading.gif" id="loadingGif">
+    </div>
     <div class="container">
         <div class="pages">
             <div id="one">

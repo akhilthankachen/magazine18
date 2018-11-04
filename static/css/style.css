@@ -5,6 +5,7 @@ body{
 }
 .container{
     background-color: #D4DCA9;
+    background-image: linear-gradient(to bottom right, #D4DCA9, rgb(223, 183, 132));
     height: 100vh;
     width: 100vw;
 }

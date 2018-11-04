@@ -31,6 +31,7 @@ var leftFourPos;
 var leftFivePos;
 
 var windowWidth = "";
+//rgb(223, 183, 132) loading color
 
 //function init css of one
 function initOne(){
@@ -411,7 +412,7 @@ leftArrow.click(leftArrowClick);
 
 one.mouseenter(function (){
     if(((pageCount%5) == 1) && (windowWidth == "full")){
-        one.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+        one.css({"box-shadow": "0 0 18px rgb(61, 61, 61)","-webkit-box-shadow":"0 0 18px rgb(61, 61, 61)","cursor":"pointer"});
     }
 });
 one.mouseleave(function (){
@@ -421,7 +422,7 @@ one.mouseleave(function (){
 });
 two.mouseenter(function (){
     if(((pageCount%5) == 2) && (windowWidth == "full")){
-        two.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+        two.css({"box-shadow": "0 0 18px rgb(61, 61, 61)","-webkit-box-shadow":"0 0 18px rgb(61, 61, 61)","cursor":"pointer"});
     }
 });
 two.mouseleave(function (){
@@ -431,7 +432,7 @@ two.mouseleave(function (){
 });
 three.mouseenter(function (){
     if(((pageCount%5) == 3) && (windowWidth == "full")){
-        three.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+        three.css({"box-shadow": "0 0 18px rgb(61, 61, 61)","-webkit-box-shadow":"0 0 18px rgb(61, 61, 61)","cursor":"pointer"});
     }
 });
 three.mouseleave(function (){
@@ -441,7 +442,7 @@ three.mouseleave(function (){
 });
 four.mouseenter(function (){
     if(((pageCount%5) == 4) && (windowWidth == "full")){
-        four.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+        four.css({"box-shadow": "0 0 18px rgb(61, 61, 61)","-webkit-box-shadow":"0 0 18px rgb(61, 61, 61)","cursor":"pointer"});
     }
 });
 four.mouseleave(function (){
@@ -451,7 +452,7 @@ four.mouseleave(function (){
 });
 five.mouseenter(function (){
     if(((pageCount%5) == 0) && (windowWidth == "full")){
-        five.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+        five.css({"box-shadow": "0 0 18px rgb(61, 61, 61)","-webkit-box-shadow":"0 0 18px rgb(61, 61, 61)","cursor":"pointer"});
     }
 });
 five.mouseleave(function (){
