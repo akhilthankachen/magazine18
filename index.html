@@ -24,8 +24,20 @@
         margin: auto;
         display: block;
         top: 0;right: 0;bottom: 0;left: 0;
-        height: 10%;
+        height: 15%;
         width: auto;
+        z-index: 10000;
+    }
+    #animationLoading{
+        position: absolute;
+        margin: auto;
+        display: none;
+        top: 0;right: 0;bottom: 0;left: 0;
+        width: 60%;
+        height: auto;
+        z-index: 10001;
+        border-radius: 10%;
+        opacity: 0;
     }
 </style>
 <script>
@@ -36,18 +48,21 @@
         speed = 500;
     }
     window.onload = function (){
+        $("#animationLoading").css({"display":"block"});
+        $("#animationLoading").animate({"opacity":"1"});
         setTimeout(()=>{
             $("#loading").animate({
                 "bottom":"100%",
                 "border-radius":"60%",
             },speed);
-        },1000);
+        },100);
     };
 </script>
 </head>
 <body>
     <div id="loading">
         <img src="./static/img/loading.gif" id="loadingGif">
+        <img src="./static/img/animationLoading.gif" id="animationLoading">
     </div>
     <div class="container">
         <div class="pages">
@@ -69,20 +84,19 @@
         </div>
         <div id="arrowButtons">
             <button class="arrow left" id="leftArrow">
-                <svg width="30px" height="40px" viewBox="0 0 50 80" xml:space="preserve">
+                <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
                     <polyline fill="none" stroke="rgb(143, 151, 95)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
                     45.63,75.8 0.375,38.087 45.63,0.375 "/>
                 </svg>  
             </button>
             <button class="arrow right" id="rightArrow">
-                <svg width="30px" height="40px" viewBox="0 0 50 80" xml:space="preserve">
+                <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
                 <polyline fill="none" stroke="rgb(143, 151, 95)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
                 0.375,0.375 45.63,38.087 0.375,75.8 "/>
             </svg>
             </button>
         </div>
         <div id="count">
-            <br>
             <h2 id="pageNumber">1</h2>
         </div>
     </div>

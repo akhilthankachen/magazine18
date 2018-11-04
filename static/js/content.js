@@ -33,71 +33,6 @@ var leftFivePos;
 var windowWidth = "";
 //rgb(223, 183, 132) loading color
 
-//function init css of one
-function initOne(){
-    var pageHeight = $(".pages").height();
-    var pageWidth = ((pageHeight * 0.943) * 2480) / 3508;
-    widthPageOne = pageWidth;
-    $("#one").css({
-        "height":"90%",
-        "width":pageWidth ,
-        "display":"inline-block",
-        "position":"absolute",
-        "margin":"auto",
-        "left":"0",
-        "right":"0",
-        "top":"0",
-        "bottom":"0",
-        "overflow":"hidden",
-        "border-radius":"5%",
-        "z-index":"99"
-    });
-    $("#imgOne").attr('src','./static/img/pages/magazine18-1.jpg');
-}
-//function init css of two
-function initTwo(){
-    var pageHeight = $(".pages").height();
-    var pageTwoWidth = ((pageHeight * .69) * 2480) / 3508;
-    widthPageTwo = pageTwoWidth;
-    $("#two").css({
-        "width":pageTwoWidth,
-        "display":"inline-block",
-        "position":"absolute",
-        "border-radius":"5%",
-        "margin":"auto",
-        "overflow":"hidden",
-        "height":"65%",
-        "right":"18%",
-        "left":"",
-        "top":"0",
-        "bottom":"0",
-        "z-index":"66",
-        "opacity":"0.7"
-    });
-    $("#imgTwo").attr('src','./static/img/pages/magazine18-2.jpg');
-}
-//function init css of three
-function initThree(){
-    var pageHeight = $(".pages").height();
-    var pageThreeWidth = ((pageHeight * .35) * 2480) / 3508;
-    widthPageThree = pageThreeWidth;
-    $("#three").css({
-        "height":"35%",
-        "width":pageThreeWidth,
-        "display":"inline-block",
-        "position":"absolute",
-        "margin":"auto",
-        "right":"8%",
-        "left":"",
-        "top":"0",
-        "bottom":"0",
-        "overflow":"hidden",
-        "z-index":"33",
-        "border-radius":"5%",
-        "opacity":"0.4"
-    });
-    $("#imgThree").attr('src','./static/img/pages/magazine18-3.jpg');
-}
 //init all pages
 function init(){
     $("#four").css({"display":"none"});
@@ -111,31 +46,97 @@ function init(){
     var pageThreeWidth = ((pageHeight * .35) * 2480) / 3508;
     widthPageThree = pageThreeWidth;
 
-    rightOnePos = ((92/100)*pages.width()) - widthPageThree;
-    rightTwoPos = ((82/100)*pages.width()) - widthPageTwo;
-    rightThreePos = 0;
-    rightFourPos = (18/100)*pages.width();
-    rightFivePos = (8/100)*pages.width();
-
-    leftOnePos = (8/100)*pages.width();
-    leftTwoPos = (18/100)*pages.width();
-    leftThreePos = 0;
-    leftFourPos = ((82/100)*pages.width()) - widthPageTwo; 
-    leftFivePos = ((92/100)*pages.width()) - widthPageThree;
-
     if(window.innerWidth > 1080){
         windowWidth = "full";
+
+        rightOnePos = ((92/100)*pages.width()) - widthPageThree;
+        rightTwoPos = ((82/100)*pages.width()) - widthPageTwo;
+        rightThreePos = 0;
+        rightFourPos = (18/100)*pages.width();
+        rightFivePos = (8/100)*pages.width();
+
+        leftOnePos = (8/100)*pages.width();
+        leftTwoPos = (18/100)*pages.width();
+        leftThreePos = 0;
+        leftFourPos = ((82/100)*pages.width()) - widthPageTwo; 
+        leftFivePos = ((92/100)*pages.width()) - widthPageThree;
+
     }else{
         windowWidth = "small";
+        rightOnePos = ((96/100)*pages.width()) - widthPageThree;
+        rightTwoPos = ((90/100)*pages.width()) - widthPageTwo;
+        rightThreePos = 0;
+        rightFourPos = (10/100)*pages.width();
+        rightFivePos = (4/100)*pages.width();
+
+        leftOnePos = (4/100)*pages.width();
+        leftTwoPos = (10/100)*pages.width();
+        leftThreePos = 0;
+        leftFourPos = ((90/100)*pages.width()) - widthPageTwo; 
+        leftFivePos = ((96/100)*pages.width()) - widthPageThree;
     }
+
+    var pageHeight = $(".pages").height();
+    var pageWidth = ((pageHeight * 0.943) * 2480) / 3508;
+    widthPageOne = pageWidth;
+    $("#one").css({
+        "height":"90%",
+        "width":pageWidth ,
+        "display":"inline-block",
+        "position":"absolute",
+        "margin":"auto",
+        "left":leftThreePos,
+        "right":rightThreePos,
+        "top":"0",
+        "bottom":"0",
+        "overflow":"hidden",
+        "border-radius":"5%",
+        "z-index":"99"
+    });
+    $("#imgOne").attr('src','./static/img/pages/magazine18-1.jpg');
+    var pageTwoWidth = ((pageHeight * .69) * 2480) / 3508;
+    widthPageTwo = pageTwoWidth;
+    $("#two").css({
+        "width":pageTwoWidth,
+        "display":"inline-block",
+        "position":"absolute",
+        "border-radius":"5%",
+        "margin":"auto",
+        "overflow":"hidden",
+        "height":"65%",
+        "right":rightFourPos,
+        "left":leftFourPos,
+        "top":"0",
+        "bottom":"0",
+        "z-index":"66",
+        "opacity":"0.7"
+    });
+    $("#imgTwo").attr('src','./static/img/pages/magazine18-2.jpg');
+    var pageThreeWidth = ((pageHeight * .35) * 2480) / 3508;
+    widthPageThree = pageThreeWidth;
+    $("#three").css({
+        "height":"35%",
+        "width":pageThreeWidth,
+        "display":"inline-block",
+        "position":"absolute",
+        "margin":"auto",
+        "right":rightFivePos,
+        "left":leftFivePos,
+        "top":"0",
+        "bottom":"0",
+        "overflow":"hidden",
+        "z-index":"33",
+        "border-radius":"5%",
+        "opacity":"0.4"
+    });
+    $("#imgThree").attr('src','./static/img/pages/magazine18-3.jpg');
+
 }
 //function executes when dom is ready
 $( document ).ready(function() {
     //init
     init();
-    initOne();
-    initTwo();
-    initThree();
+ 
 });
 
 
