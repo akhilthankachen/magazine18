@@ -51,11 +51,15 @@
         $("#animationLoading").css({"display":"block"});
         $("#animationLoading").animate({"opacity":"1"});
         setTimeout(()=>{
+            $("#loadingGif").css({"display":"none"});
             $("#loading").animate({
                 "bottom":"100%",
                 "border-radius":"60%",
             },speed);
-        },100);
+            $("#animationLoading").animate({
+                "opacity": "0"
+            },speed/3);
+        },10100);
     };
 </script>
 </head>
