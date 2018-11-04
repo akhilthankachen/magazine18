@@ -390,6 +390,14 @@ function animatePageNumberLeft(){
     pageNumber.text(pageCount);
 }
 
+//arrow keys control
+$(document).keydown(function(e) {
+    if(e.keyCode == 37){
+        leftArrowClick();
+    }else if(e.keyCode == 39){
+        rightArrowClick();
+    }
+});
 function rightArrowClick(){
     if(pageCount <= 2){
         clickRightPrelim();
