@@ -30,13 +30,15 @@ var leftThreePos;
 var leftFourPos;
 var leftFivePos;
 
+var windowWidth = "";
+
 //function init css of one
 function initOne(){
     var pageHeight = $(".pages").height();
-    var pageWidth = ((pageHeight * 1.043) * 2480) / 3508;
+    var pageWidth = ((pageHeight * 0.943) * 2480) / 3508;
     widthPageOne = pageWidth;
     $("#one").css({
-        "height":"100%",
+        "height":"90%",
         "width":pageWidth ,
         "display":"inline-block",
         "position":"absolute",
@@ -101,7 +103,7 @@ function init(){
     $("#five").css({"display":"none"});
 
     var pageHeight = $(".pages").height();
-    var pageWidth = ((pageHeight * 1.043) * 2480) / 3508;
+    var pageWidth = ((pageHeight * 0.943) * 2480) / 3508;
     widthPageOne = pageWidth;
     var pageTwoWidth = ((pageHeight * .69) * 2480) / 3508;
     widthPageTwo = pageTwoWidth;
@@ -119,6 +121,12 @@ function init(){
     leftThreePos = 0;
     leftFourPos = ((82/100)*pages.width()) - widthPageTwo; 
     leftFivePos = ((92/100)*pages.width()) - widthPageThree;
+
+    if(window.innerWidth > 1080){
+        windowWidth = "full";
+    }else{
+        windowWidth = "small";
+    }
 }
 //function executes when dom is ready
 $( document ).ready(function() {
@@ -157,7 +165,7 @@ function animateFiveToFour(id,order){
 function animateFourToThree(id,order){
     if(order == 1){
         id.animate({
-            height: "100%",
+            height: "90%",
             right: rightThreePos,
             left: leftThreePos,
             opacity:"1",
@@ -179,13 +187,13 @@ function animateFourToThree(id,order){
 function animateThreeToTwo(id,order){
     if(order == 0){
         id.animate({
-            height: "100%",
+            height: "90%",
             right: rightThreePos,
             left: leftThreePos,
             opacity:"1",
             width: widthPageOne
         },animationSpeed);
-        id.css({"z-index":"66"});
+        id.css({"z-index":"99"});
     }else{
         id.animate({
             height: "65%",
@@ -238,6 +246,9 @@ function animateOneToFive(id,order,imgId,count){
         id.animate({
             opacity:"0"
         },animationSpeed/2);
+        if(imgId != null){
+            imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+        }
         id.animate({
             opacity:"0.4",
             left: leftOnePos,
@@ -328,26 +339,124 @@ function clickRightHandle(){
         animateTwoToOne(one,1);
         animateOneToFive(five,1,imgIdFive,pageCount+3);
     }
-
     animatePageNumber();
+}
+
+function clickLeftHandle(){
+    var numLeft = pageCount%5;
+    if(numLeft == 3){
+        animateFiveToFour(four,0);
+        animateFourToThree(three,0);
+        animateThreeToTwo(two,0);
+        animateTwoToOne(one,0);
+        animateOneToFive(five,0,imgIdFive,pageCount-3);
+    }else if(numLeft == 4){
+        animateFiveToFour(five,0);
+        animateFourToThree(four,0);
+        animateThreeToTwo(three,0);
+        animateTwoToOne(two,0);
+        animateOneToFive(one,0,imgIdOne,pageCount-3);
+    }else if(numLeft == 0){
+        animateFiveToFour(one,0);
+        animateFourToThree(five,0);
+        animateThreeToTwo(four,0);
+        animateTwoToOne(three,0);
+        animateOneToFive(two,0,imgIdTwo,pageCount-3);
+    }else if(numLeft == 1){
+        animateFiveToFour(two,0);
+        animateFourToThree(one,0);
+        animateThreeToTwo(five,0);
+        animateTwoToOne(four,0);
+        animateOneToFive(three,0,imgIdThree,pageCount-3);
+    }else if(numLeft == 2){
+        animateFiveToFour(three,0);
+        animateFourToThree(two,0);
+        animateThreeToTwo(one,0);
+        animateTwoToOne(five,0);
+        animateOneToFive(four,0,imgIdFour,pageCount-3);
+    }
+
+    animatePageNumberLeft();
 }
 
 function animatePageNumber(){
     pageCount++;
     pageNumber.text(pageCount);
 }
+function animatePageNumberLeft(){
+    pageCount--;
+    pageNumber.text(pageCount);
+}
 
 function rightArrowClick(){
     if(pageCount <= 2){
         clickRightPrelim();
+    }else if(pageCount >= 154){
+
     }
     else{
         clickRightHandle();
     }
 }
 function leftArrowClick(){
-
+    if(pageCount >= 4){
+        clickLeftHandle();
+    }
 }
 
 rightArrow.click(rightArrowClick);
 leftArrow.click(leftArrowClick);
+
+//mouse over
+
+one.mouseenter(function (){
+    if(((pageCount%5) == 1) && (windowWidth == "full")){
+        one.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+    }
+});
+one.mouseleave(function (){
+    if(((pageCount%5) == 1) && (windowWidth == "full")){
+        one.css({"box-shadow": "","-webkit-box-shadow":""});
+    }
+});
+two.mouseenter(function (){
+    if(((pageCount%5) == 2) && (windowWidth == "full")){
+        two.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+    }
+});
+two.mouseleave(function (){
+    if(((pageCount%5) == 2) && (windowWidth == "full")){
+        two.css({"box-shadow": "","-webkit-box-shadow":""});
+    }
+});
+three.mouseenter(function (){
+    if(((pageCount%5) == 3) && (windowWidth == "full")){
+        three.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+    }
+});
+three.mouseleave(function (){
+    if(((pageCount%5) == 3) && (windowWidth == "full")){
+        three.css({"box-shadow": "","-webkit-box-shadow":""});
+    }
+});
+four.mouseenter(function (){
+    if(((pageCount%5) == 4) && (windowWidth == "full")){
+        four.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+    }
+});
+four.mouseleave(function (){
+    if(((pageCount%5) == 4) && (windowWidth == "full")){
+        four.css({"box-shadow": "","-webkit-box-shadow":""});
+    }
+});
+five.mouseenter(function (){
+    if(((pageCount%5) == 0) && (windowWidth == "full")){
+        five.css({"box-shadow": "0 0 18px black","-webkit-box-shadow":"0 0 18px black","cursor":"pointer"});
+    }
+});
+five.mouseleave(function (){
+    if(((pageCount%5) == 0) && (windowWidth == "full")){
+        five.css({"box-shadow": "","-webkit-box-shadow":""});
+    }
+});
+
