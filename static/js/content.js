@@ -1,4 +1,4 @@
-var clickCount = 0;
+var pageCount = 1;
 var animationSpeed = 200;
 var pageNumber = $("#pageNumber");
 var rightArrow = $("#rightArrow");
@@ -220,11 +220,14 @@ function animateTwoToOne(id,order){
     }
 }
 
-function animateOneToFive(id,order,imgId,newImg){
+function animateOneToFive(id,order,imgId,count){
     if(order == 1){
         id.animate({
             opacity:"0"
         },animationSpeed/2);
+        if(imgId != null){
+            imgId.attr('src','./static/img/pages/magazine18-'+count+'.jpg');
+        }
         id.animate({
             opacity:"0.4",
             right: rightFivePos,
@@ -243,12 +246,104 @@ function animateOneToFive(id,order,imgId,newImg){
         id.css({"z-index":"33"});
     }
 }
+function clickRightPrelim(){
+    if( pageCount == 1 ){
+        animateThreeToTwo(one,1);
+        animateFourToThree(two,1);
+        animateFiveToFour(three,1);
+        $("#four").css({
+            "height":"35%",
+            "width":widthPageThree,
+            "display":"inline-block",
+            "position":"absolute",
+            "margin":"auto",
+            "right":rightFivePos,
+            "left":leftFivePos,
+            "top":"0",
+            "bottom":"0",
+            "overflow":"hidden",
+            "z-index":"33",
+            "border-radius":"5%",
+            "opacity":"0"
+        });
+        $("#imgFour").attr('src','./static/img/pages/magazine18-4.jpg');
+        animateOneToFive(four,1);
+        animatePageNumber();
+    }else if( pageCount==2 ){
+        animateTwoToOne(one,1);
+        animateThreeToTwo(two,1);
+        animateFourToThree(three,1);
+        animateFiveToFour(four,1);
+        $("#five").css({
+            "height":"35%",
+            "width":widthPageThree,
+            "display":"inline-block",
+            "position":"absolute",
+            "margin":"auto",
+            "right":rightFivePos,
+            "left":leftFivePos,
+            "top":"0",
+            "bottom":"0",
+            "overflow":"hidden",
+            "z-index":"33",
+            "border-radius":"5%",
+            "opacity":"0"
+        });
+        $("#imgFive").attr('src','./static/img/pages/magazine18-5.jpg');
+        animateOneToFive(five,1);
+        animatePageNumber();
+    }
+}
 
+function clickRightHandle(){
+    var num = pageCount%5;
+    if(num == 3){
+        animateFiveToFour(five,1);
+        animateFourToThree(four,1);
+        animateThreeToTwo(three,1);
+        animateTwoToOne(two,1);
+        animateOneToFive(one,1,imgIdOne,pageCount+3);
+    }else if(num == 4){
+        animateFiveToFour(one,1);
+        animateFourToThree(five,1);
+        animateThreeToTwo(four,1);
+        animateTwoToOne(three,1);
+        animateOneToFive(two,1,imgIdTwo,pageCount+3);
+    }else if(num == 0){
+        animateFiveToFour(two,1);
+        animateFourToThree(one,1);
+        animateThreeToTwo(five,1);
+        animateTwoToOne(four,1);
+        animateOneToFive(three,1,imgIdThree,pageCount+3);
+    }else if(num == 1){
+        animateFiveToFour(three,1);
+        animateFourToThree(two,1);
+        animateThreeToTwo(one,1);
+        animateTwoToOne(five,1);
+        animateOneToFive(four,1,imgIdFour,pageCount+3);
+    }else if(num == 2){
+        animateFiveToFour(four,1);
+        animateFourToThree(three,1);
+        animateThreeToTwo(two,1);
+        animateTwoToOne(one,1);
+        animateOneToFive(five,1,imgIdFive,pageCount+3);
+    }
+
+    animatePageNumber();
+}
+
+function animatePageNumber(){
+    pageCount++;
+    pageNumber.text(pageCount);
+}
 
 function rightArrowClick(){
-    animateThreeToTwo(one,1);
-    animateFourToThree(two,1);
-    animateFiveToFour(three,1);
+    if(pageCount <= 2){
+        clickRightPrelim();
+    }
+    else{
+        clickRightHandle();
+    }
 }
 function leftArrowClick(){
 
