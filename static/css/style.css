@@ -1,11 +1,13 @@
-body{
-    overflow: hidden;
+html, body {
+    margin: 0; 
     padding: 0;
-    margin: 0;
+    height: 100%; 
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 .container{
     background-color: #D4DCA9;
-    background-image: linear-gradient(to bottom right, #D4DCA9, rgb(223, 183, 132));
+    background-image: linear-gradient(to bottom right, rgb(203, 214, 139), rgb(219, 173, 112));
     height: 100vh;
     width: 100vw;
 }
@@ -123,4 +125,30 @@ svg {
 
 polyline {
     transition: all 250ms ease-in-out;
+}
+
+#sidebar{
+    width: 30%;
+    height: 63%;
+    background-color: white;
+    display: block;
+    margin: auto;
+    position: absolute;
+    left:0;
+    top:0;bottom:0;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+#loading{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: none;
+    position: absolute;
+    bottom: 0%;
+    z-index: 9999;
+    border-radius: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }

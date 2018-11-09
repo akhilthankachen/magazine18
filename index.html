@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 <link rel="stylesheet" type="text/css" href="./static/css/style.css">
 <link rel="stylesheet" type="text/css" href="./static/css/styleMob.css">
 <title>College Magazine 2018</title>
 <style>
     #loading{
-        height: 100%;
-        width: 100%;
+        height: 100vw;
+        width: 100vw;
         background-color: white;
         display: block;
         position: absolute;
-        bottom: 0%;
+        margin: auto;
+        top:0;left:0;right:0;bottom:0;
         z-index: 9999;
         border-radius: 0;
         overflow: hidden;
@@ -59,20 +60,31 @@
         setTimeout(()=>{
             $("#loadingGif").css({"display":"none"});
             $("#loading").animate({
-                "bottom":"100%",
-                "border-radius":"60%",
+                "border-radius":"100%",
+                "height":"8vw",
+                "width":"8vw",
+                "bottom":"96vw"
             },speed);
             $("#animationLoading").animate({
                 "opacity": "0"
             },speed/3);
-        },10100);
+        },10000);
+        setTimeout(()=>{
+            $("#loading").css({"display":"none"});
+        },speed+10000);
     };
 </script>
 </head>
 <body>
+    <div id="sidebar">
+
+    </div>
     <div id="loading">
         <img src="./static/img/loading.gif" id="loadingGif">
         <img src="./static/img/animationLoading.gif" id="animationLoading">
+    </div>
+    <div id="fullScreen">
+
     </div>
     <div class="container">
         <div class="pages">
