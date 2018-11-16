@@ -42,6 +42,8 @@ var animationToggleRight = true;
 var sidebarToggle = true;
 //rgb(223, 183, 132) loading color
 
+
+
 //init all pages
 function init(){
     four.css({"display":"none"});
