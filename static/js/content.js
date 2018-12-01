@@ -21,9 +21,9 @@ var backLoadingThree = $("#backLoadingThree");
 var backLoadingFour = $("#backLoadingFour");
 var backLoadingFive = $("#backLoadingFive");
 var leftZoomFav = $("#leftZoomFav");
-var rightFullFav = $("#rigthFullFav");
+var rightFullFav = $("#rightFullFav");
 var leftZoom = $("#leftZoom");
-var rightFull = $("#rigthFull");
+var rightFull = $("#rightFull");
 
 var widthPageThree = 0;
 var widthPageTwo = 0;
@@ -44,12 +44,14 @@ var windowWidth = "";
 var animationToggleLeft = true;
 var animationToggleRight = true;
 var sidebarToggle = true;
+var fullScreenToggle = false;
 //rgb(223, 183, 132) loading color
 
 
 
 //init all pages
 function init(){
+    console.log("init run");
     four.css({"display":"none"});
     five.css({"display":"none"});
     backLoadingOne.css({"display":"none"});
@@ -645,8 +647,57 @@ leftZoomFav.mouseleave(function (){
     leftZoom.css({"background-color": "white","cursor":"inherit"});
 });
 rightFullFav.mouseenter(function (){
-    rightFullFav.css({"background-color": "rgb(219, 173, 112)","cursor":"pointer"});
+    rightFull.css({"background-color": "rgb(219, 173, 112)","cursor":"pointer"});
 });
 rightFullFav.mouseleave(function (){
     rightFull.css({"background-color": "white","cursor":"inherit"});
 });
+
+function leftZoomFav_click(){
+    // left zoom favicon click handle
+
+
+}
+
+function rightFullFav_click(){
+    // full screen click- right Favicon
+    var elem = document.body;
+    if(!fullScreenToggle){
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+        }
+        fullScreenToggle = true;
+    }else{
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } 
+        fullScreenToggle = false;
+    }
+}
+if (document.addEventListener)
+{
+    document.addEventListener('webkitfullscreenchange', exitHandler, false);
+    document.addEventListener('mozfullscreenchange', exitHandler, false);
+    document.addEventListener('fullscreenchange', exitHandler, false);
+    document.addEventListener('MSFullscreenChange', exitHandler, false);
+}
+function exitHandler()
+{
+    init();
+}
+
+leftZoomFav.click(leftZoomFav_click);
+rightFullFav.click(rightFullFav_click);
+
