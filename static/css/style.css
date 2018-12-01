@@ -56,6 +56,21 @@ html, body {
     border-bottom-left-radius: 3vw;
     border-top-left-radius: 3vw;
 }
+.faviconStyle{
+    height: 50%;
+    padding-top: 20%;
+    width: auto;
+}
+#leftZoomFav{
+    position: absolute;
+    left: 10%;
+    z-index: 999;
+}
+#rightFullFav{
+    position: absolute;
+    right: 10%;
+    z-index: 999;
+}
 #rightFull{
     float: right;
     width:95%;
@@ -176,3 +191,4 @@ polyline {
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
 }
+

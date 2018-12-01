@@ -20,6 +20,10 @@ var backLoadingTwo = $("#backLoadingTwo");
 var backLoadingThree = $("#backLoadingThree");
 var backLoadingFour = $("#backLoadingFour");
 var backLoadingFive = $("#backLoadingFive");
+var leftZoomFav = $("#leftZoomFav");
+var rightFullFav = $("#rigthFullFav");
+var leftZoom = $("#leftZoom");
+var rightFull = $("#rigthFull");
 
 var widthPageThree = 0;
 var widthPageTwo = 0;
@@ -632,3 +636,17 @@ five.mouseleave(function (){
     }
 });
 
+// favicon handles
+
+leftZoomFav.mouseenter(function (){
+    leftZoom.css({"background-color": "rgb(219, 173, 112)","cursor":"pointer"});
+});
+leftZoomFav.mouseleave(function (){
+    leftZoom.css({"background-color": "white","cursor":"inherit"});
+});
+rightFullFav.mouseenter(function (){
+    rightFullFav.css({"background-color": "rgb(219, 173, 112)","cursor":"pointer"});
+});
+rightFullFav.mouseleave(function (){
+    rightFull.css({"background-color": "white","cursor":"inherit"});
+});
