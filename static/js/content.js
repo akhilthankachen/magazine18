@@ -24,6 +24,9 @@ var leftZoomFav = $("#leftZoomFav");
 var rightFullFav = $("#rightFullFav");
 var leftZoom = $("#leftZoom");
 var rightFull = $("#rightFull");
+var full = $('#full');
+var fullscreen = $('#fullScreen');
+var arrowButtons = $('#arrowButtons');
 
 var widthPageThree = 0;
 var widthPageTwo = 0;
@@ -45,13 +48,17 @@ var animationToggleLeft = true;
 var animationToggleRight = true;
 var sidebarToggle = true;
 var fullScreenToggle = false;
+var leftZoomToggle = false;
 //rgb(223, 183, 132) loading color
 
 
 
 //init all pages
 function init(){
-    console.log("init run");
+    pageCount = 1;
+    pageNumber.text(pageCount);
+    sidebar.css({"left":"0"});
+    sidebarToggle = true;
     four.css({"display":"none"});
     five.css({"display":"none"});
     backLoadingOne.css({"display":"none"});
@@ -113,7 +120,8 @@ function init(){
         "bottom":"0",
         "overflow":"hidden",
         "border-radius":"5%",
-        "z-index":"99"
+        "z-index":"99",
+        "opacity":"1"
     });
     $("#imgOne").attr('src','./static/img/pages/magazine18-1.jpg');
     var pageTwoWidth = ((pageHeight * .69) * 2480) / 3508;
@@ -159,6 +167,23 @@ function init(){
         $("#imgTwo").css({"display":"none"});
         $("#imgThree").css({"display":"none"});
     }
+
+    full.css({
+        "position":"absolute",
+        "margin":"auto",
+        "width":"100%",
+        "height":"100%",
+        "right":"0%"
+    });
+    fullscreen.css({
+        "position":"absolute",
+        "display":"none",
+        "margin":"auto",
+        "width":"100%",
+        "height":"100%",
+        "right":"-100%",
+        "background-color":"white"
+    });
 }
 //function executes when dom is ready
 $( document ).ready(function() {
@@ -655,7 +680,21 @@ rightFullFav.mouseleave(function (){
 
 function leftZoomFav_click(){
     // left zoom favicon click handle
-
+    if(!leftZoomToggle){
+        arrowButtons.css({"display":"none"});
+        fullscreen.css({"display":"block"});
+        full.animate({right:"100%"},animationSpeed);
+        fullscreen.animate({right:"0%"},animationSpeed);
+        leftZoomToggle = true;
+    }else{
+        arrowButtons.css({"display":"block"});
+        full.animate({right:"0%"},animationSpeed);
+        fullscreen.animate({right:"-100%"},animationSpeed);
+        setTimeout(function (){
+            fullscreen.css({"display":"none"});
+        },animationSpeed);
+        leftZoomToggle = false;
+    }
 
 }
 
@@ -695,6 +734,11 @@ if (document.addEventListener)
 }
 function exitHandler()
 {
+    imgIdOne.attr('src','');
+    imgIdTwo.attr('src','');
+    imgIdThree.attr('src','');
+    imgIdFour.attr('src','');
+    imgIdFive.attr('src','');
     init();
 }
 

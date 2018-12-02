@@ -2,6 +2,10 @@ html, body {
     margin: 0; 
     padding: 0;
     height: 100%; 
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+#fullscreen{
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -191,4 +195,5 @@ polyline {
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
 }
+
 

@@ -54,7 +54,7 @@
     }
 </style>
 <script>
-    var totalAnimationLength = 10000;
+    var totalAnimationLength = 1000;
     var speed;
     if( window.innerHeight <= 768 ){
         speed = 400;
@@ -98,74 +98,77 @@
 </script>
 </head>
 <body>
-    <div id="sidebar">
-
-    </div>
     <div id="loading">
         <img src="./static/img/loading.gif" id="loadingGif">
         <img src="./static/img/animationLoading.gif" id="animationLoading">
     </div>
     <div id="fullScreen">
-
+    
     </div>
-    <div class="container">
-        <div class="pages">
-            <div id="one" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingOne" class="backLoading">
-                <img id = "imgOne" class = "pageImg">
-            </div>
-            <div id="two" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingTwo" class="backLoading">
-                <img id = "imgTwo" class = "pageImg">
-            </div>
-            <div id="three" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingThree" class="backLoading">
-                <img id = "imgThree" class = "pageImg">
-            </div>
-            <div id="four" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingFour" class="backLoading">
-                <img id = "imgFour" class = "pageImg">
-            </div>
-            <div id="five" class="backWhite">
-                <img src="./static/img/loading.gif" id="backLoadingFive" class="backLoading">
-                <img id = "imgFive" class = "pageImg">
+    <div class="" id="full">
+        <div id="sidebar">
+
+        </div>
+        <div class="container">
+            <div class="pages">
+                <div id="one" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingOne" class="backLoading">
+                    <img id = "imgOne" class = "pageImg">
+                </div>
+                <div id="two" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingTwo" class="backLoading">
+                    <img id = "imgTwo" class = "pageImg">
+                </div>
+                <div id="three" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingThree" class="backLoading">
+                    <img id = "imgThree" class = "pageImg">
+                </div>
+                <div id="four" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingFour" class="backLoading">
+                    <img id = "imgFour" class = "pageImg">
+                </div>
+                <div id="five" class="backWhite">
+                    <img src="./static/img/loading.gif" id="backLoadingFive" class="backLoading">
+                    <img id = "imgFive" class = "pageImg">
+                </div>
             </div>
         </div>
-        <div id="bottomPanel">
-            <div id="zoomControls">
-                <div class="controlIcon">
-                    <div id="leftZoom">
-                        <img src="./static/img/zoomUp.png" alt="" class="faviconStyle" id="leftZoomFav">
-                    </div>
-                </div>
-                <div class="controlIcon">
-                    <div id="rightFull">
-                        <img src="./static/img/fullscreen.png" alt="" class="faviconStyle" id="rightFullFav">
-                    </div>
+    </div>
+    <div id="bottomPanel">
+        <div id="zoomControls">
+            <div class="controlIcon">
+                <div id="leftZoom">
+                    <img src="./static/img/zoomUp.png" alt="" class="faviconStyle" id="leftZoomFav">
                 </div>
             </div>
-            <div id="arrowButtons">
-                <button class="arrow left" id="leftArrow">
-                    <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
-                        <polyline fill="none" stroke="rgb(143, 151, 95)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
-                        45.63,75.8 0.375,38.087 45.63,0.375 "/>
-                    </svg>  
-                </svg>  
-                    </svg>  
-                </button>
-                <button class="arrow right" id="rightArrow">
-                    <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
+            <div class="controlIcon">
+                <div id="rightFull">
+                    <img src="./static/img/fullscreen.png" alt="" class="faviconStyle" id="rightFullFav">
+                </div>
+            </div>
+        </div>
+        <div id="arrowButtons">
+            <button class="arrow left" id="leftArrow">
+                <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
                     <polyline fill="none" stroke="rgb(143, 151, 95)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
-                    0.375,0.375 45.63,38.087 0.375,75.8 "/>
-                </svg>
-                </button>
-            </div>
-        </div>
-
-        <div id="count">
-            <h2 id="pageNumber">1</h2>
+                    45.63,75.8 0.375,38.087 45.63,0.375 "/>
+                </svg>  
+            </svg>  
+                </svg>  
+            </button>
+            <button class="arrow right" id="rightArrow">
+                <svg viewBox="0 0 50 80" xml:space="preserve" class="arrowSize">
+                <polyline fill="none" stroke="rgb(143, 151, 95)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="
+                0.375,0.375 45.63,38.087 0.375,75.8 "/>
+            </svg>
+            </button>
         </div>
     </div>
+
+    <div id="count">
+        <h2 id="pageNumber">1</h2>
+    </div>
+
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
